@@ -54,11 +54,11 @@ const articlesSlice = createSlice({
   }
 })
 
-const selectArticles = (state: RootState) => state.articles
+const selectArticles = (state: RootState) => state.articlesReducer.articles
 
 export { 
   fetchArticles,
-  selectArticles 
+  selectArticles
 }
 
 export const {
