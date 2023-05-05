@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react"
-
-import { getNews } from "../services/NewsAPIClient"
+import { useDispatch, useSelector } from "react-redux"
+import { setArticles } from "../redux/articles/articlesSlice"
 
 const Dashboard = () => {
-  const [articles, setArticles] = useState([])
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    async function getArticles() {
-      try {
-        const response = await getNews()
-        setArticles(response)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getArticles()
+    dispatch(setArticles)
   }, [])
 
   return (
