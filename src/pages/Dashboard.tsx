@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { setArticles } from "../redux/articles/articlesSlice"
+import React, { useEffect } from "react"
+import { Article, fetchArticles, selectArticles } from "../redux/articles/articlesSlice"
+import { useAppDispatch, useAppSelector } from "../redux/hooks"
 
 const Dashboard = () => {
-  const dispatch = useDispatch()
+  const articles = useAppSelector(selectArticles)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(setArticles)
+    dispatch(fetchArticles())
   }, [])
 
   return (
     <div>
       <ul>
-        { articles.map((article: any) => {
+        { articles.map((article: Article) => {
           return (
             <li key={article.title}>{article.title}</li>
           )
