@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 
 import { fetchArticles, selectArticles } from "../redux/articles/articlesSlice"
-import ArticlesListContainer from "../components/articles/ArticlesListContainer"
+import ArticlesContainer from "../components/articles/ArticlesContainer"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
 
 const Home = () => {
@@ -9,12 +9,15 @@ const Home = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchArticles())
+    dispatch(fetchArticles({
+      country: "jp",
+      q: "chatGPT"
+    }))
   }, [])
 
   return (
     <div>
-      <ArticlesListContainer />
+      <ArticlesContainer articles={articles} />
     </div>
   )
 }

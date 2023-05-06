@@ -39,10 +39,14 @@ const INITIAL_STATE: ArticlesState = {
   error: null
 }
 
-const fetchArticles = createAsyncThunk("articles/fetchArticles", async () => {
-  const articles = await getNews()
-  return articles
-})
+const fetchArticles = createAsyncThunk(
+  "articles/fetchArticles",
+  async ({ country, q }: { country: string, q: string}) => {
+    const articles = await getNews(country, q)
+    console.log(articles)
+    return articles
+  }
+)
 
 const articlesSlice = createSlice({
   name: "articles",

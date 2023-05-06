@@ -4,14 +4,12 @@ import { Article } from "../../redux/articles/articlesSlice"
 
 interface ArticlesContainerProps {
   articles: Article[]
-  category: string
 }
 
 const ArticlesContainer = (props: ArticlesContainerProps) => {
-  const { articles, category } = props
+  const { articles } = props
   return (
     <div>
-      <h2>{ category }</h2>
       <ul>
         { articles.map((article: Article) => {
           return (

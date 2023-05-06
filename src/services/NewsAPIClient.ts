@@ -8,8 +8,12 @@ const newsAPIClient = axios.create({
   timeout: 2000
 })
 
-const getNews = async () => {
-  const { data } = await newsAPIClient.get("/everything?q=chatGPT")
+const getNews = async (country: string, q: string) => {
+  const params = {
+    country,
+    q
+  }
+  const { data } = await newsAPIClient.get("/everything", { params })
   return data.articles
 }
 
