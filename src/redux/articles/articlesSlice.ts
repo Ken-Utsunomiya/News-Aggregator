@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 import { getNews } from "../../services/NewsAPIClient"
 import { RootState } from "../store"
@@ -21,19 +21,19 @@ export interface ArticlesState {
   error: string | null
 }
 
-const INITIAL_ARTICLE = {
-  source: null,
-  author: null,
-  title: null,
-  description: null,
-  url: null,
-  urlToImage: null,
-  publishedAt: null,
-  content: null
+const INITIAL_ARTICLE: Article = {
+  source: "",
+  author: "",
+  title: "",
+  description: "",
+  url: "",
+  urlToImage: "",
+  publishedAt: "",
+  content: ""
 }
 
-const INITIAL_STATE = {
-  articles: [],
+const INITIAL_STATE: ArticlesState = {
+  articles: [] as Article[],
   selectedArticle: INITIAL_ARTICLE,
   loading: false,
   error: null
@@ -48,9 +48,19 @@ const articlesSlice = createSlice({
   name: "articles",
   initialState: INITIAL_STATE,
   reducers: {
-    setArticles: (state, action) => {
+    setArticles: (state, action: PayloadAction<Article[]>) => {
       state.articles = action.payload
     }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticles.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(fetchArticles.fulfilled, (state, action) => {
+        state.loading = false
+        state.articles = action.payload
+      })
   }
 })
 
