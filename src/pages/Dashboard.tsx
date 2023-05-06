@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
+
 import { fetchArticles, selectArticles } from "../redux/articles/articlesSlice"
+import ArticlesListContainer from "../components/articles/ArticlesListContainer"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
-import ArticlesContainer from "../components/articles/ArticlesContainer"
 
 const Dashboard = () => {
   const articles = useAppSelector(selectArticles)
@@ -13,7 +14,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <ArticlesContainer articles={articles} />
+      <ArticlesListContainer />
     </div>
   )
 }
