@@ -8,6 +8,15 @@ const newsAPIClient = axios.create({
   timeout: 2000
 })
 
+const getHeadlines = async (category: string, country: string) => {
+  const params = {
+    category,
+    country
+  }
+  const { data } = await newsAPIClient.get("/top-headlines", { params })
+  return data.articles
+}
+
 const getNews = async (country: string, q: string) => {
   const params = {
     country,
@@ -18,5 +27,6 @@ const getNews = async (country: string, q: string) => {
 }
 
 export {
+  getHeadlines,
   getNews
 }

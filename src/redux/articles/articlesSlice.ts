@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
-import { getNews } from "../../services/NewsAPIClient"
+import { getHeadlines, getNews } from "../../services/NewsAPIClient"
 import { RootState } from "../store"
 
 export interface Article {
@@ -43,10 +43,17 @@ const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",
   async ({ country, q }: { country: string, q: string}) => {
     const articles = await getNews(country, q)
-    console.log(articles)
     return articles
   }
 )
+
+const fetchHeadlines = createAsyncThunk(
+  "articles/fetchHeadlines",
+  async ({ category, country }: { category: string, country: string}) => {
+    const headlines = await getHeadlines(category, country)
+    return headlines
+  }
+) 
 
 const articlesSlice = createSlice({
   name: "articles",
