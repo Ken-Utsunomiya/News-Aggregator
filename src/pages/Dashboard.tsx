@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchArticles())
-  }, [articles])
+  }, [])
 
   return (
     <div>
