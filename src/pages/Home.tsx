@@ -4,7 +4,7 @@ import { fetchArticles, selectArticles } from "../redux/articles/articlesSlice"
 import ArticlesListContainer from "../components/articles/ArticlesListContainer"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
 
-const Dashboard = () => {
+const Home = () => {
   const articles = useAppSelector(selectArticles)
   const dispatch = useAppDispatch()
 
@@ -19,4 +19,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Home
