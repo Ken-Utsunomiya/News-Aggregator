@@ -18,7 +18,7 @@ export interface ArticlesState {
   articles: Article[]
   selectedArticle: Article
   loading: boolean
-  error: string | null
+  error: string | undefined
 }
 
 const INITIAL_ARTICLE: Article = {
@@ -36,24 +36,21 @@ const INITIAL_STATE: ArticlesState = {
   articles: [] as Article[],
   selectedArticle: INITIAL_ARTICLE,
   loading: false,
-  error: null
+  error: ""
 }
 
 const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",
-  async ({ country, q }: { country: string, q: string}) => {
-    const articles = await getNews(country, q)
+  async ({ country, filter, isHeadline }: { country: string, filter: string, isHeadline: boolean }) => {
+    let articles: Article[]
+    if (isHeadline) {
+      articles = await getHeadlines(filter, country)
+    } else {
+      articles = await getNews(country, filter)
+    }
     return articles
   }
 )
-
-const fetchHeadlines = createAsyncThunk(
-  "articles/fetchHeadlines",
-  async ({ category, country }: { category: string, country: string}) => {
-    const headlines = await getHeadlines(category, country)
-    return headlines
-  }
-) 
 
 const articlesSlice = createSlice({
   name: "articles",
@@ -71,6 +68,10 @@ const articlesSlice = createSlice({
       .addCase(fetchArticles.fulfilled, (state, action) => {
         state.loading = false
         state.articles = action.payload
+      })
+      .addCase(fetchArticles.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message
       })
   }
 })
