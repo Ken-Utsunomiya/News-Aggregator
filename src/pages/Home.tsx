@@ -1,23 +1,11 @@
-import React, { useEffect } from "react"
+import React from "react"
 
-import { fetchArticles, selectArticles } from "../redux/articles/articlesSlice"
-import ArticlesContainer from "../components/articles/ArticlesContainer"
-import { useAppDispatch, useAppSelector } from "../redux/hooks"
+import ArticlesListContainer from "../components/articles/ArticlesListContainer"
 
 const Home = () => {
-  const articles = useAppSelector(selectArticles)
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(fetchArticles({
-      country: "jp",
-      q: "chatGPT"
-    }))
-  }, [])
-
   return (
     <div>
-      <ArticlesContainer articles={articles} />
+      <ArticlesListContainer />
     </div>
   )
 }

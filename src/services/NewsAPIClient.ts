@@ -17,9 +17,9 @@ const getHeadlines = async (category: string, country: string) => {
   return data.articles
 }
 
-const getNews = async (country: string, q: string) => {
+const getNews = async (language: string, q: string) => {
   const params = {
-    country,
+    language,
     q
   }
   const { data } = await newsAPIClient.get("/everything", { params })
