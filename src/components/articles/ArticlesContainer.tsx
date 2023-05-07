@@ -1,6 +1,7 @@
 import React from "react"
 
 import { Article } from "../../redux/articles/articlesSlice"
+import ArticlesGrid from "./ArticlesGrid"
 
 interface ArticlesContainerProps {
   articles: Article[]
@@ -9,14 +10,8 @@ interface ArticlesContainerProps {
 const ArticlesContainer = (props: ArticlesContainerProps) => {
   const { articles } = props
   return (
-    <div>
-      <ul>
-        { articles.map((article: Article) => {
-          return (
-            <li key={article.title}>{article.title}</li>
-          )
-        })}
-      </ul>
+    <div className="container">
+      <ArticlesGrid articles={articles} />
     </div>
   )
 }
