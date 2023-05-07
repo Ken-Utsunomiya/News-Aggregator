@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Article } from "../../redux/articles/articlesSlice"
-import "../../styles/ArticlesGrid.module.css"
+import "../../styles/index.css"
 
 interface ArticlesGridProps {
   articles: Article[]
@@ -15,7 +15,7 @@ const ArticlesGrid = (props: ArticlesGridProps) => {
       { articles.map((article: Article) => {
         return (
           <div key={article.title} className="col-span-1">
-            <img src={article.urlToImage} className="h-2 w-2" />
+            <img src={article.urlToImage} className="h-100 w-200" />
           </div>
         )
       })}
