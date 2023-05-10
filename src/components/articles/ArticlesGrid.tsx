@@ -13,9 +13,9 @@ const ArticlesGrid = (props: ArticlesGridProps) => {
 
   return (
     <div className="grid grid-cols-4 gap-4">
-      { articles.map((article: Article) => {
+      { articles.map((article: Article, index: number) => {
         return (
-          <div key={article.title}>
+          <div key={index}>
             <ArticleCard article={article}/>
           </div>
         )

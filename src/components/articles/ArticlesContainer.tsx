@@ -2,6 +2,7 @@ import React from "react"
 
 import { Article } from "../../redux/articles/articlesSlice"
 import ArticlesGrid from "./ArticlesGrid"
+import "../../styles/index.css"
 
 interface ArticlesContainerProps {
   articles: Article[]
@@ -9,6 +10,7 @@ interface ArticlesContainerProps {
 
 const ArticlesContainer = (props: ArticlesContainerProps) => {
   const { articles } = props
+  
   return (
     <div className="container">
       <ArticlesGrid articles={articles} />

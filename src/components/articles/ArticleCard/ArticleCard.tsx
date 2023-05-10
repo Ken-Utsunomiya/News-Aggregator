@@ -12,6 +12,7 @@ const ArticleCard = (props: ArticleCardProps) => {
   return (
     <div className="col-span-1">
       <img src={article.urlToImage} className="h-100 w-200" />
+      <p>{ article.title }</p>
     </div>
   )
 }

@@ -10,10 +10,11 @@ const ArticlesListContainer = () => {
 
   useEffect(() => {
     dispatch(fetchArticles({
-      country: "jp",
+      country: "en",
       filter: "chatGPT",
       isHeadline: false
     }))
+    console.log("dispatch called")
   }, [])
 
   return (
