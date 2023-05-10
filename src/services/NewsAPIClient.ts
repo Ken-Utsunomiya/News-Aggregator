@@ -1,4 +1,7 @@
 import axios from "axios"
+import { DEFAULT_PAGE_SIZE } from "./constants"
+
+const pageSize = DEFAULT_PAGE_SIZE
 
 const newsAPIClient = axios.create({
   baseURL: process.env.REACT_APP_NEWSAPI_API_URL,
@@ -11,7 +14,8 @@ const newsAPIClient = axios.create({
 const getHeadlines = async (category: string, country: string) => {
   const params = {
     category,
-    country
+    country,
+    pageSize
   }
   const { data } = await newsAPIClient.get("/top-headlines", { params })
   return data.articles
@@ -20,7 +24,8 @@ const getHeadlines = async (category: string, country: string) => {
 const getNews = async (language: string, q: string) => {
   const params = {
     language,
-    q
+    q,
+    pageSize
   }
   const { data } = await newsAPIClient.get("/everything", { params })
   return data.articles
