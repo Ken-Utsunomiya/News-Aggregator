@@ -10,8 +10,8 @@ const ArticleCard = (props: ArticleCardProps) => {
   const { article } = props
 
   return (
-    <div className="col-span-1">
-      <img src={article.urlToImage} className="h-100 w-200" />
+    <div className="rounded overflow-hidden shadow-lg">
+      <img src={article.urlToImage} className="h-50 w-150 content-center" />
       <p>{ article.title }</p>
     </div>
   )

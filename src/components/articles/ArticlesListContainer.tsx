@@ -18,7 +18,7 @@ const ArticlesListContainer = () => {
   }, [])
 
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <ArticlesContainer articles={articles} />
     </div>
   )

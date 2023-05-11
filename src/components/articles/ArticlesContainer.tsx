@@ -13,7 +13,7 @@ const ArticlesContainer = (props: ArticlesContainerProps) => {
   
   return (
     <div className="container">
-      <ArticlesGrid articles={articles} />
+      <ArticlesGrid articles={articles} isHeadline={false} />
     </div>
   )
 }
