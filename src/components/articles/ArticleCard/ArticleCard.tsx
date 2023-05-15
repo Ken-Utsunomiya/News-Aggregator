@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Article } from "../../../redux/articles/articlesSlice"
+import { Article } from "../../../types/articles"
 
 interface ArticleCardProps {
   article: Article

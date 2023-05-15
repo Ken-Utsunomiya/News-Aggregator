@@ -2,24 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 import { getHeadlines, getNews } from "../../services/NewsAPIClient"
 import { RootState } from "../store"
-
-export interface Article {
-  source: string
-  author: string
-  title: string
-  description: string
-  url: string
-  urlToImage: string
-  publishedAt: string
-  content: string
-}
-
-export interface ArticlesState {
-  articles: Article[]
-  selectedArticle: Article
-  loading: boolean
-  error: string | undefined
-}
+import { Article, ArticlesState } from "../../types/articles"
 
 const INITIAL_ARTICLE: Article = {
   source: "",
