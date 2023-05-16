@@ -1,7 +1,9 @@
 import ArticlesReducer from "./articles/articlesSlice"
+import HeadlineReducer from "./articles/headlinesSlice"
 
 const rootReducer = {
-  articlesReducer: ArticlesReducer
+  articlesReducer: ArticlesReducer,
+  headlinesReducer: HeadlineReducer
 }
 
 export default rootReducer
