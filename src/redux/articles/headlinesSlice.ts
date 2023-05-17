@@ -16,7 +16,6 @@ const fetchHeadline = createAsyncThunk(
   "articles/fetchHeadline",
   async ({ category, country }: { category: string, country: string }) => {
     const headline = await getHeadlines(category, country)
-    console.log(headline)
     return headline
   }
 )

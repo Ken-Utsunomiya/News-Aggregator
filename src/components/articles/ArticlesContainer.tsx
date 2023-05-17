@@ -10,6 +10,7 @@ interface ArticlesContainerProps {
 
 const ArticlesContainer = (props: ArticlesContainerProps) => {
   const { articles } = props
+  console.log(articles)
   
   return (
     <div className="container">

@@ -17,7 +17,7 @@ const HeadlinesContainer = () => {
         country: "us"
       }))
     }
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="flex justify-center items-center">
