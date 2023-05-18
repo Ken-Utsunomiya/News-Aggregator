@@ -11,7 +11,7 @@ const newsAPIClient = axios.create({
   timeout: 2000
 })
 
-const getHeadlines = async (category: string, country: string) => {
+const getHeadline = async (category: string, country: string) => {
   const params = {
     category,
     country,
@@ -32,6 +32,6 @@ const getNews = async (language: string, q: string) => {
 }
 
 export {
-  getHeadlines,
+  getHeadline,
   getNews
 }

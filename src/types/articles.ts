@@ -15,3 +15,10 @@ export interface ArticlesState {
   loading: boolean
   error: string | undefined
 }
+
+export interface HeadlinesState {
+  headlines: { [category: string]: Article[] }
+  selectedArticle: Article
+  loading: boolean
+  error: string | undefined
+}
