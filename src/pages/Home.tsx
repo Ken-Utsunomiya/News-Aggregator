@@ -1,6 +1,6 @@
 import React from "react"
 
-import HeadlinesContainer from "../components/headlines/headlinesContainer"
+import HeadlinesContainer from "../components/headlines/HeadlinesContainer"
 
 
 const Home = () => {
