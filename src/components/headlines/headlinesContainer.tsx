@@ -12,8 +12,8 @@ const HeadlinesContainer = () => {
       category: "science",
       country: "us"
     }))
-    console.log(headlines)
-  }, [dispatch, headlines])
+    console.log(headlines["science"])
+  }, [dispatch])
 
   return (
     <div className="flex justify-center items-center">

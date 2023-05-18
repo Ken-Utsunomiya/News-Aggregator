@@ -36,9 +36,7 @@ const headlinesSlice = createSlice({
   reducers: {
     setHeadline: (state, action: PayloadAction<{ category: string, headline: Article[] }>) => {
       const { category, headline } = action.payload
-      console.log("setHeadline")
-      console.log(action.payload)
-      state.headlines[category] = headline
+      state.headlines = { ...state.headlines, [category]: headline }
     }
   },
   extraReducers: (builder) => {
@@ -48,11 +46,9 @@ const headlinesSlice = createSlice({
         console.log("loading")
       })
       .addCase(fetchHeadline.fulfilled, (state, action) => {
-        console.log("success")
-        console.log(action.payload)
         const { category, headline } = action.payload
         state.loading = false
-        state.headlines[category] = headline
+        state.headlines = { ...state.headlines, [category]: headline }
       })
       .addCase(fetchHeadline.rejected, (state, action) => {
         console.log("fail")
