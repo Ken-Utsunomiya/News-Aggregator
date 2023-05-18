@@ -12,7 +12,6 @@ const HeadlinesContainer = () => {
       category: "science",
       country: "us"
     }))
-    console.log(headlines["science"])
   }, [dispatch])
 
   return (

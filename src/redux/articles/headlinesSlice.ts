@@ -26,7 +26,7 @@ const fetchHeadline = createAsyncThunk(
   "articles/fetchHeadline",
   async ({ category, country }: { category: string, country: string }) => {
     const headline = await getHeadline(category, country)
-    return headline
+    return { category, headline }
   }
 )
 
@@ -43,7 +43,6 @@ const headlinesSlice = createSlice({
     builder
       .addCase(fetchHeadline.pending, (state) => {
         state.loading = true
-        console.log("loading")
       })
       .addCase(fetchHeadline.fulfilled, (state, action) => {
         const { category, headline } = action.payload
@@ -51,7 +50,6 @@ const headlinesSlice = createSlice({
         state.headlines = { ...state.headlines, [category]: headline }
       })
       .addCase(fetchHeadline.rejected, (state, action) => {
-        console.log("fail")
         state.loading = false
         state.error = action.error.message
       })
