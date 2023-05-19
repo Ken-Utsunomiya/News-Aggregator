@@ -2,7 +2,8 @@ import React, { useEffect } from "react"
 
 import { fetchHeadline, selectHeadlines } from "../../redux/articles/headlinesSlice"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
-import ArticlesContainer from "../articles/ArticlesContainer"
+
+import HeadlineContainer from "./HeadlineContainer"
 
 const DEFAULT_HEADLINE_CATEGORY = ["technology", "business", "general"]
 
@@ -20,9 +21,9 @@ const HeadlinesContainer = () => {
   }, [dispatch])
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center grid grid-cols-1">
       { Object.entries(headlines).map(([category, headline]) => {
-        return <ArticlesContainer key={category} articles={headline} />
+        return <HeadlineContainer headline={headline} key={category} />
       })}
     </div>
   )
