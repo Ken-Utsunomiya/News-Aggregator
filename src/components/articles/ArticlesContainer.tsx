@@ -1,7 +1,9 @@
 import React from "react"
 
-import { Article } from "../../types/articles"
 import ArticlesGrid from "./ArticlesGrid"
+
+import type { Article } from "../../types/articles"
+
 import "../../styles/index.css"
 
 interface ArticlesContainerProps {

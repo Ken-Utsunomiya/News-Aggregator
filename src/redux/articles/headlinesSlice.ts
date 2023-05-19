@@ -1,11 +1,14 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 import { getHeadline } from "../../services/NewsAPIClient"
-import { initialArticle } from "./shared"
-import { RootState } from "../store"
-import { Article, HeadlinesState } from "../../types/articles"
 
-const initialState: HeadlinesState = {
+import { initialArticle } from "./shared"
+
+import type { Article, HeadlinesState } from "../../types/articles"
+import type { RootState } from "../store"
+import type { PayloadAction} from "@reduxjs/toolkit"
+
+const INITIAL_STATE: HeadlinesState = {
   headlines: {},
   selectedArticle: initialArticle,
   loading: false,
@@ -22,7 +25,7 @@ const fetchHeadline = createAsyncThunk(
 
 const headlinesSlice = createSlice({
   name: "headlines",
-  initialState: initialState,
+  initialState: INITIAL_STATE,
   reducers: {
     setHeadline: (state, action: PayloadAction<{ category: string, headline: Article[] }>) => {
       const { category, headline } = action.payload

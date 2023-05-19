@@ -1,9 +1,12 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 import { getNews } from "../../services/NewsAPIClient"
-import { RootState } from "../store"
-import { Article, ArticlesState } from "../../types/articles"
+
 import { initialArticle } from "./shared"
+
+import type { Article, ArticlesState } from "../../types/articles"
+import type { RootState } from "../store"
+import type { PayloadAction} from "@reduxjs/toolkit"
 
 const initialState: ArticlesState = {
   articles: [] as Article[],

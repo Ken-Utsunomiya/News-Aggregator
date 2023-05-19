@@ -1,4 +1,5 @@
 import axios from "axios"
+
 import { DEFAULT_PAGE_SIZE } from "./constants"
 
 const pageSize = DEFAULT_PAGE_SIZE

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 
+import { fetchHeadline, selectHeadlines } from "../../redux/articles/headlinesSlice"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import ArticlesContainer from "../articles/ArticlesContainer"
-import { fetchHeadline, selectHeadlines } from "../../redux/articles/headlinesSlice"
 
 const DEFAULT_HEADLINE_CATEGORY = ["technology", "business", "general"]
 

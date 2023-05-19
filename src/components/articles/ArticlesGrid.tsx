@@ -1,8 +1,11 @@
 import React from "react"
 
-import { Article } from "../../types/articles"
-import "../../styles/index.css"
 import ArticleCard from "./ArticleCard/ArticleCard"
+
+import type { Article } from "../../types/articles"
+
+
+import "../../styles/index.css"
 
 interface ArticlesGridProps {
   articles: Article[]
