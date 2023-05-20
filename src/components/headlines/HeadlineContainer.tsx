@@ -6,13 +6,13 @@ import type { Article } from "../../types/articles"
 
 interface HeadlineContainerProps {
   headline: Article[],
-  key: string
+  category: string
 }
 
 const HeadlineContainer = (props: HeadlineContainerProps) => {
-  const { headline, key } = props
+  const { headline, category } = props
   return (
-    <div className="container" key={key}>
+    <div className="container h-100">
       <HeadlineGrid headline={headline} />
     </div>
   )

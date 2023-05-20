@@ -21,9 +21,13 @@ const HeadlinesContainer = () => {
   }, [dispatch])
 
   return (
-    <div className="flex justify-center items-center grid grid-cols-1">
+    <div className="grid grid-cols-1 gap-y-5 grid-flow-row">
       { Object.entries(headlines).map(([category, headline]) => {
-        return <HeadlineContainer headline={headline} key={category} />
+        return (
+          <div key={category} >
+            <HeadlineContainer headline={headline} category={category} />
+          </div>
+        )
       })}
     </div>
   )
