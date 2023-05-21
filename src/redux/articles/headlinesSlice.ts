@@ -6,7 +6,7 @@ import { initialArticle } from "./shared"
 
 import type { Article, HeadlinesState } from "../../types/articles"
 import type { RootState } from "../store"
-import type { PayloadAction} from "@reduxjs/toolkit"
+import type { PayloadAction } from "@reduxjs/toolkit"
 
 const INITIAL_STATE: HeadlinesState = {
   headlines: {},
