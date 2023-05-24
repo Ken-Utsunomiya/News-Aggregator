@@ -1,13 +1,14 @@
 import React from "react"
 
-import { useAppSelector } from "../redux/hooks"
+import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { selectLanguage, setLanguage } from "../redux/languages/languageSlice"
 
 const Header = () => {
   const selectedLanguage = useAppSelector(selectLanguage)
+  const dispatch = useAppDispatch()
 
   const handleLanguageChange = (language: string) => {
-    setLanguage(language)
+    dispatch(setLanguage(language))
   }
 
   return (
