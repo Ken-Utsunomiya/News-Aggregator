@@ -11,8 +11,8 @@ const ArticleCard = (props: ArticleCardProps) => {
 
   return (
     <div className="rounded overflow-hidden shadow-lg">
-      <img src={article.urlToImage} className="h-50 w-15 content-center" />
-      <p>{ article.title }</p>
+      <img src={ article.urlToImage } className="h-50 w-15 content-center" />
+      <h6>{ article.title }</h6>
     </div>
   )
 }
