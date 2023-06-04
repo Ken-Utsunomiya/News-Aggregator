@@ -8,7 +8,7 @@ const initialState: LanguageState = {
   selectedLanguage: "en"
 }
 
-const languagSlice = createSlice({
+const languageSlice = createSlice({
   name: "language",
   initialState: initialState,
   reducers: {
@@ -21,11 +21,12 @@ const languagSlice = createSlice({
 const selectLanguage = (state: RootState) => state.languageReducer.selectedLanguage
 
 export {
+  initialState,
   selectLanguage
 }
 
 export const {
   setLanguage
-} = languagSlice.actions
+} = languageSlice.actions
 
-export default languagSlice.reducer
+export default languageSlice.reducer
