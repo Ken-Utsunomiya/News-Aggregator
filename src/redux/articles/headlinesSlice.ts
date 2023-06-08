@@ -8,7 +8,7 @@ import type { Article, HeadlinesState } from "../../types/articles"
 import type { RootState } from "../store"
 import type { PayloadAction } from "@reduxjs/toolkit"
 
-const INITIAL_STATE: HeadlinesState = {
+const initialState: HeadlinesState = {
   headlines: {},
   selectedArticle: initialArticle,
   loading: false,
@@ -25,7 +25,7 @@ const fetchHeadline = createAsyncThunk(
 
 const headlinesSlice = createSlice({
   name: "headlines",
-  initialState: INITIAL_STATE,
+  initialState: initialState,
   reducers: {
     setHeadline: (state, action: PayloadAction<{ category: string, headline: Article[] }>) => {
       const { category, headline } = action.payload
@@ -52,6 +52,7 @@ const headlinesSlice = createSlice({
 const selectHeadlines = (state: RootState) => state.headlinesReducer.headlines
 
 export { 
+  initialState,
   fetchHeadline,
   selectHeadlines
 }
