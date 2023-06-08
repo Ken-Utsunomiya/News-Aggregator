@@ -1,7 +1,7 @@
 import configureStore from "redux-mock-store"
 import thunk from "redux-thunk"
 
-import { fetchHeadline, initialState } from "../../../src/redux/articles/headlinesSlice"
+import reducer, { fetchHeadline, initialState } from "../../../src/redux/articles/headlinesSlice"
 import * as NewsAPIClient from "../../../src/services/NewsAPIClient"
 
 import type { HeadlinesState } from "../../../src/types/articles"
@@ -32,10 +32,7 @@ describe("async thunks", () => {
   test("fetchHeadline should dispatch the correct actions", async () => {
     const expectedCategory = "technology"
     const expectedCountry = "us"
-    const mockResponse = {
-      category: expectedCategory,
-      headline: [{ title: "Headline 1" }, { title: "Headline 2" }],
-    }
+    const mockResponse = [{ title: "Headline 1" }, { title: "Headline 2" }]
 
     jest.spyOn(NewsAPIClient, "getHeadline").mockResolvedValueOnce(mockResponse)
 
@@ -45,8 +42,19 @@ describe("async thunks", () => {
     }))
 
     const actions = store.getActions()
+
     expect(actions).toHaveLength(2)
-    expect(actions[0]).toMatchObject({ type: fetchHeadline.pending.type })
-    expect(actions[1]).toMatchObject({ type: fetchHeadline.fulfilled.type })
+    expect(actions[0].type).toBe(fetchHeadline.pending.type)
+    expect(actions[1].type).toBe(fetchHeadline.fulfilled.type)
+    expect(actions[1].payload.category).toBe(expectedCategory)
+    expect(actions[1].payload.headline).toEqual(mockResponse)
+  })
+})
+
+describe("reducer", () => {
+  test("should return the initial state", () => {
+    const nextState = reducer(undefined, { type: undefined })
+
+    expect(nextState).toEqual(initialState)
   })
 })

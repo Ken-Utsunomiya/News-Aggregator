@@ -4,9 +4,8 @@ import { getHeadline } from "../../services/NewsAPIClient"
 
 import { initialArticle } from "./shared"
 
-import type { Article, HeadlinesState } from "../../types/articles"
+import type { HeadlinesState } from "../../types/articles"
 import type { RootState } from "../store"
-import type { PayloadAction } from "@reduxjs/toolkit"
 
 const initialState: HeadlinesState = {
   headlines: {},
@@ -26,12 +25,7 @@ const fetchHeadline = createAsyncThunk(
 const headlinesSlice = createSlice({
   name: "headlines",
   initialState: initialState,
-  reducers: {
-    setHeadline: (state, action: PayloadAction<{ category: string, headline: Article[] }>) => {
-      const { category, headline } = action.payload
-      state.headlines = { ...state.headlines, [category]: headline }
-    }
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchHeadline.pending, (state) => {
@@ -52,13 +46,9 @@ const headlinesSlice = createSlice({
 const selectHeadlines = (state: RootState) => state.headlinesReducer.headlines
 
 export { 
-  initialState,
   fetchHeadline,
+  initialState,
   selectHeadlines
 }
-
-export const {
-  setHeadline
-} = headlinesSlice.actions
 
 export default headlinesSlice.reducer
