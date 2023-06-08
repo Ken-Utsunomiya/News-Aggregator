@@ -68,5 +68,6 @@
             }
           ],
           "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }]
-        }
+        },
+        "import/no-unresolved": "off"
 }
