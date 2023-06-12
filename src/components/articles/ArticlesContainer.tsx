@@ -4,8 +4,6 @@ import ArticlesGrid from "./ArticlesGrid"
 
 import type { Article } from "../../types/articles"
 
-import "../../styles/index.css"
-
 interface ArticlesContainerProps {
   articles: Article[]
 }
@@ -15,7 +13,7 @@ const ArticlesContainer = (props: ArticlesContainerProps) => {
   console.log(articles)
   
   return (
-    <div className="container">
+    <div>
       <ArticlesGrid articles={articles} isHeadline={false} />
     </div>
   )

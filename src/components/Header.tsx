@@ -12,7 +12,7 @@ const Header = () => {
   }
 
   return (
-    <div  className="flex items-center justify-between">
+    <div>
       <div>
         Header
       </div>

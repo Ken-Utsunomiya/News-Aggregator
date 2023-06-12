@@ -25,7 +25,7 @@ const HeadlinesContainer = () => {
   }, [dispatch, selectedLanguage])
 
   return (
-    <div className="grid grid-cols-1 gap-y-5 grid-flow-row">
+    <div>
       { Object.entries(headlines).map(([category, headline]) => {
         return (
           <div key={category} >

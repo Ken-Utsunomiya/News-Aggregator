@@ -12,7 +12,7 @@ interface HeadlineContainerProps {
 const HeadlineContainer = (props: HeadlineContainerProps) => {
   const { headline, category } = props
   return (
-    <div className="container h-100">
+    <div>
       <h3>{ category }</h3>
       <HeadlineGrid headline={headline} />
     </div>
