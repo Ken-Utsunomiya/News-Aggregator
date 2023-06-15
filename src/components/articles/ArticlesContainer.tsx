@@ -5,15 +5,16 @@ import ArticlesGrid from "./ArticlesGrid"
 import type { Article } from "../../types/articles"
 
 interface ArticlesContainerProps {
-  articles: Article[]
+  articles: Article[],
+  genre: string
 }
 
 const ArticlesContainer = (props: ArticlesContainerProps) => {
-  const { articles } = props
-  console.log(articles)
+  const { articles, genre } = props
   
   return (
     <div>
+      <h3>{ genre }</h3>
       <ArticlesGrid articles={articles} isHeadline={false} />
     </div>
   )
