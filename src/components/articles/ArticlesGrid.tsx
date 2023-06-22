@@ -6,7 +6,6 @@ import type { Article } from "../../types/articles"
 
 interface ArticlesGridProps {
   articles: Article[]
-  isHeadline: boolean
 }
 
 const ArticlesGrid = (props: ArticlesGridProps) => {
