@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+import { DEFAULT_CATEGORY } from "../../constants"
+
 import type { CategoryState } from "../../types/category"
 import type { RootState } from "../store"
 import type { PayloadAction } from "@reduxjs/toolkit"
 
+
 const initialState: CategoryState = {
-  selectedCategory: ""
+  selectedCategory: DEFAULT_CATEGORY
 }
 
 const categorySlice = createSlice({
