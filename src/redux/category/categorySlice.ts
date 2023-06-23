@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-import { DEFAULT_CATEGORY } from "../../constants"
+import { CATEGORIES, DEFAULT_CATEGORY } from "../../constants"
 
 import type { CategoryState } from "../../types/category"
 import type { RootState } from "../store"
@@ -16,7 +16,12 @@ const categorySlice = createSlice({
   initialState: initialState,
   reducers: {
     setCategory: (state, action: PayloadAction<string>) => {
-      state.selectedCategory = action.payload
+      const category = action.payload
+      if (CATEGORIES.includes(category)) {
+        state.selectedCategory = category
+      } else {
+        state.selectedCategory = DEFAULT_CATEGORY
+      }
     }
   }
 })
